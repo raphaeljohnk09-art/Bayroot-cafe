@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bayroot Cafe | القائمة الإلكترونية الفاخرة - Menu</title>
-    <meta name="description" content="منيو كافيه بايروت (Bayroot Cafe) الإلكتروني - استمتع بأفضل تشكيلة من الكوكتيلات الفاخرة وكوكتيلات الصودا المنعشة">
+    <meta name="description" content="منيو كافيه بايروت (Bayroot Cafe) الإلكتروني - استمتع بأفضل تشكيلة من المشروبات الفاخرة، العصائر الفريش، والحلويات والشيشة">
     
     <!-- Google Fonts: Cairo & Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,13 +14,10 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- QRCode JS Library for Spec-Compliant Scanning -->
+    <!-- QRCode JS Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
     <style>
-        /* ==========================================
-           BAYROOT CAFE - DESIGN SYSTEM & VARIABLES
-           ========================================== */
         :root {
             --bg-dark: #121212;
             --bg-card: #1a1a1a;
@@ -46,16 +43,8 @@
             --font-en: 'Outfit', sans-serif;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        html { scroll-behavior: smooth; }
 
         body {
             background-color: var(--bg-dark);
@@ -72,644 +61,194 @@
             background-attachment: fixed;
         }
 
-        .en-text, .price-val, .currency, .tag-en, .brand-en {
-            font-family: var(--font-en);
-        }
+        .en-text, .price-val, .currency, .tag-en, .brand-en { font-family: var(--font-en); }
+        .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-        .container {
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* ==========================================
-           HEADER & LOGO SECTION
-           ========================================== */
+        /* HEADER */
         .header {
             text-align: center;
             padding: 35px 20px 25px;
             position: relative;
             background: linear-gradient(180deg, rgba(26,26,26,0.8) 0%, rgba(18,18,18,0) 100%);
         }
-
         .header-bg-glow {
-            position: absolute;
-            top: -50px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 260px;
-            height: 260px;
+            position: absolute; top: -50px; left: 50%; transform: translateX(-50%);
+            width: 260px; height: 260px;
             background: radial-gradient(circle, rgba(223, 177, 91, 0.18) 0%, rgba(0,0,0,0) 70%);
-            pointer-events: none;
-            z-index: 0;
+            pointer-events: none; z-index: 0;
         }
-
-        .logo-wrapper {
-            position: relative;
-            z-index: 1;
-            display: inline-block;
-            margin-bottom: 12px;
-            transition: var(--transition);
-        }
-
-        .logo-wrapper:hover {
-            transform: scale(1.04);
-        }
-
-        .logo-svg {
-            width: 125px;
-            height: 125px;
-            filter: drop-shadow(0 0 16px rgba(223, 177, 91, 0.4));
-        }
-
+        .logo-wrapper { position: relative; z-index: 1; display: inline-block; margin-bottom: 12px; transition: var(--transition); }
+        .logo-wrapper:hover { transform: scale(1.04); }
+        .logo-svg { width: 125px; height: 125px; filter: drop-shadow(0 0 16px rgba(223, 177, 91, 0.4)); }
+        
         .brand-title {
-            font-size: 2.2rem;
-            font-weight: 900;
-            letter-spacing: 2px;
+            font-size: 2.2rem; font-weight: 900; letter-spacing: 2px;
             background: var(--gold-gradient-shine);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-top: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-top: 5px; display: flex; align-items: center; justify-content: center; gap: 10px;
         }
-
-        .brand-subtitle {
-            color: var(--text-gray);
-            font-size: 0.95rem;
-            font-weight: 400;
-            margin-top: 4px;
-            letter-spacing: 1px;
-        }
+        .brand-subtitle { color: var(--text-gray); font-size: 0.95rem; font-weight: 400; margin-top: 4px; letter-spacing: 1px; }
 
         .qr-trigger-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 18px;
-            padding: 10px 22px;
-            background: rgba(223, 177, 91, 0.08);
-            border: 1px solid var(--gold-primary);
-            color: var(--gold-primary);
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; padding: 10px 22px;
+            background: rgba(223, 177, 91, 0.08); border: 1px solid var(--gold-primary);
+            color: var(--gold-primary); border-radius: 30px; font-size: 0.9rem; font-weight: 600;
+            cursor: pointer; transition: var(--transition); box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
+        .qr-trigger-btn:hover { background: var(--gold-primary); color: #121212; transform: translateY(-2px); box-shadow: var(--shadow-gold); }
 
-        .qr-trigger-btn:hover {
-            background: var(--gold-primary);
-            color: #121212;
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-gold);
-        }
-
-        /* ==========================================
-           CONTROLS: SEARCH & CATEGORIES
-           ========================================== */
+        /* CONTROLS */
         .sticky-controls {
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            position: sticky; top: 0; z-index: 100;
             background: rgba(18, 18, 18, 0.92);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(223, 177, 91, 0.1);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            padding: 15px 0; border-bottom: 1px solid rgba(223, 177, 91, 0.1);
         }
-
-        .search-box-wrapper {
-            margin-bottom: 15px;
-            position: relative;
-        }
-
+        .search-box-wrapper { margin-bottom: 15px; position: relative; }
         .search-input {
-            width: 100%;
-            padding: 14px 48px 14px 20px;
-            background: var(--bg-surface);
-            border: 1px solid var(--border-card);
-            border-radius: var(--radius-md);
-            color: var(--text-white);
-            font-family: var(--font-ar);
-            font-size: 0.95rem;
-            outline: none;
-            transition: var(--transition);
+            width: 100%; padding: 14px 48px 14px 20px; background: var(--bg-surface);
+            border: 1px solid var(--border-card); border-radius: var(--radius-md);
+            color: var(--text-white); font-family: var(--font-ar); font-size: 0.95rem; outline: none; transition: var(--transition);
         }
+        .search-input:focus { border-color: var(--gold-primary); box-shadow: 0 0 15px rgba(223, 177, 91, 0.2); background: #242424; }
+        .search-icon { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); color: var(--gold-primary); font-size: 1.1rem; pointer-events: none; }
 
-        .search-input:focus {
-            border-color: var(--gold-primary);
-            box-shadow: 0 0 15px rgba(223, 177, 91, 0.2);
-            background: #242424;
-        }
-
-        .search-icon {
-            position: absolute;
-            right: 18px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--gold-primary);
-            font-size: 1.1rem;
-            pointer-events: none;
-        }
-
-        .category-nav {
-            display: flex;
-            gap: 10px;
-            overflow-x: auto;
-            padding-bottom: 5px;
-            scrollbar-width: none;
-        }
-
-        .category-nav::-webkit-scrollbar {
-            display: none;
-        }
-
+        .category-nav { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 5px; scrollbar-width: none; }
+        .category-nav::-webkit-scrollbar { display: none; }
         .cat-tab {
-            flex: 0 0 auto;
-            padding: 10px 20px;
-            background: var(--bg-surface);
-            border: 1px solid var(--border-card);
-            border-radius: 30px;
-            color: var(--text-gray);
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            flex: 0 0 auto; padding: 10px 20px; background: var(--bg-surface);
+            border: 1px solid var(--border-card); border-radius: 30px; color: var(--text-gray);
+            font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: var(--transition);
+            display: flex; align-items: center; gap: 8px;
         }
+        .cat-tab:hover { color: var(--gold-primary); border-color: var(--border-color); }
+        .cat-tab.active { background: var(--gold-gradient); color: #121212; border-color: var(--gold-primary); box-shadow: var(--shadow-gold); font-weight: 700; }
+        .cat-tab .badge-count { background: rgba(0, 0, 0, 0.2); padding: 2px 7px; border-radius: 12px; font-size: 0.75rem; }
+        .cat-tab.active .badge-count { background: rgba(0, 0, 0, 0.3); color: #ffffff; }
 
-        .cat-tab:hover {
-            color: var(--gold-primary);
-            border-color: var(--border-color);
-        }
-
-        .cat-tab.active {
-            background: var(--gold-gradient);
-            color: #121212;
-            border-color: var(--gold-primary);
-            box-shadow: var(--shadow-gold);
-            font-weight: 700;
-        }
-
-        .cat-tab .badge-count {
-            background: rgba(0, 0, 0, 0.2);
-            padding: 2px 7px;
-            border-radius: 12px;
-            font-size: 0.75rem;
-        }
-
-        .cat-tab.active .badge-count {
-            background: rgba(0, 0, 0, 0.3);
-            color: #ffffff;
-        }
-
-        /* ==========================================
-           MENU SECTION & CARDS GRID
-           ========================================== */
-        .menu-main {
-            flex: 1;
-            padding: 25px 0 50px;
-        }
-
+        /* MENU GRID & CARDS */
+        .menu-main { flex: 1; padding: 25px 0 50px; }
         .section-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin: 30px 0 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px stroke rgba(223, 177, 91, 0.2);
-            position: relative;
+            display: flex; align-items: center; justify-content: space-between;
+            margin: 35px 0 20px; padding-bottom: 10px; border-bottom: 1px stroke rgba(223, 177, 91, 0.2); position: relative;
+        }
+        .section-header::after { content: ''; position: absolute; bottom: -1px; right: 0; width: 80px; height: 3px; background: var(--gold-primary); border-radius: 3px; }
+        .section-title { font-size: 1.4rem; font-weight: 800; color: var(--gold-primary); display: flex; align-items: center; gap: 10px; }
+        .section-subtitle { font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-en); }
+
+        .note-badge {
+            background-color: rgba(223, 177, 91, 0.12); color: var(--gold-primary);
+            border: 1px dashed var(--gold-primary); padding: 10px 15px; border-radius: 10px;
+            font-size: 0.9rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
         }
 
-        .section-header::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            right: 0;
-            width: 80px;
-            height: 3px;
-            background: var(--gold-primary);
-            border-radius: 3px;
-        }
-
-        .section-title {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--gold-primary);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section-subtitle {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-family: var(--font-en);
-        }
-
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 20px;
-        }
-
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
         .menu-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-card);
-            border-radius: var(--radius-lg);
-            padding: 20px;
-            position: relative;
-            overflow: hidden;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            background: var(--bg-card); border: 1px solid var(--border-card); border-radius: var(--radius-lg);
+            padding: 16px; position: relative; overflow: hidden; transition: var(--transition);
+            display: flex; flex-direction: column; justify-content: space-between;
         }
-
-        .menu-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--border-color);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(223, 177, 91, 0.12);
-            background: var(--bg-card-hover);
-        }
-
-        .card-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 12px;
-        }
-
-        .item-icon-badge {
-            width: 48px;
-            height: 48px;
+        .menu-card:hover { transform: translateY(-4px); border-color: var(--border-color); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(223, 177, 91, 0.12); background: var(--bg-card-hover); }
+        
+        /* CARD IMAGE STYLING */
+        .card-image-wrapper {
+            width: 100%;
+            height: 180px;
             border-radius: var(--radius-md);
-            background: rgba(223, 177, 91, 0.1);
+            overflow: hidden;
+            margin-bottom: 14px;
             border: 1px solid rgba(223, 177, 91, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gold-primary);
-            font-size: 1.2rem;
-            flex-shrink: 0;
+            position: relative;
+            background: #222;
         }
-
-        .item-names {
-            flex: 1;
-        }
-
-        .name-ar {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--text-white);
-            line-height: 1.3;
-        }
-
-        .name-en {
-            font-size: 0.95rem;
-            color: var(--gold-primary);
-            font-weight: 600;
-            font-family: var(--font-en);
-            margin-top: 2px;
-        }
-
-        .item-tag {
-            font-size: 0.7rem;
-            padding: 3px 9px;
-            border-radius: 20px;
-            background: rgba(223, 177, 91, 0.15);
-            color: var(--gold-primary);
-            border: 1px solid rgba(223, 177, 91, 0.3);
-            font-weight: 700;
-            white-space: nowrap;
-        }
-
-        .card-body {
-            margin-bottom: 16px;
-        }
-
-        .desc-box {
-            font-size: 0.85rem;
-            color: var(--text-gray);
-            line-height: 1.5;
-            background: rgba(0, 0, 0, 0.2);
-            padding: 10px 12px;
-            border-radius: var(--radius-sm);
-            border-right: 3px solid var(--gold-primary);
-        }
-
-        .desc-en {
-            font-family: var(--font-en);
-            font-size: 0.82rem;
-            color: #999999;
-            margin-top: 4px;
-            display: block;
-        }
-
-        .card-footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-top: 12px;
-            border-top: 1px dashed rgba(255, 255, 255, 0.08);
-        }
-
-        .price-tag {
-            display: flex;
-            align-items: baseline;
-            gap: 4px;
-            color: var(--gold-primary);
-        }
-
-        .price-val {
-            font-size: 1.45rem;
-            font-weight: 800;
-            line-height: 1;
-        }
-
-        .price-currency {
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--gold-primary);
-            opacity: 0.9;
-        }
-
-        .fav-btn {
-            background: transparent;
-            border: none;
-            color: #555555;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: var(--transition);
-            padding: 6px;
-        }
-
-        .fav-btn:hover, .fav-btn.active {
-            color: #e74c3c;
-            transform: scale(1.2);
-        }
-
-        .no-results {
-            text-align: center;
-            padding: 50px 20px;
-            grid-column: 1 / -1;
-            color: var(--text-gray);
-        }
-
-        .no-results i {
-            font-size: 3rem;
-            color: var(--gold-primary);
-            margin-bottom: 15px;
-            opacity: 0.6;
-        }
-
-        /* ==========================================
-           PRINTABLE QR CODE CARD MODAL
-           ========================================== */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
+        .card-image-wrapper img {
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.88);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            opacity: 0;
-            pointer-events: none;
+            object-fit: cover;
             transition: var(--transition);
-            overflow-y: auto;
+        }
+        .menu-card:hover .card-image-wrapper img {
+            transform: scale(1.08);
         }
 
-        .modal-overlay.open {
-            opacity: 1;
-            pointer-events: auto;
+        .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+        .item-icon-badge {
+            width: 42px; height: 42px; border-radius: var(--radius-md); background: rgba(223, 177, 91, 0.1);
+            border: 1px solid rgba(223, 177, 91, 0.2); display: flex; align-items: center; justify-content: center;
+            color: var(--gold-primary); font-size: 1.1rem; flex-shrink: 0;
         }
+        .item-names { flex: 1; }
+        .name-ar { font-size: 1.15rem; font-weight: 700; color: var(--text-white); line-height: 1.3; }
+        .name-en { font-size: 0.9rem; color: var(--gold-primary); font-weight: 600; font-family: var(--font-en); margin-top: 2px; }
+        .item-tag { font-size: 0.7rem; padding: 3px 9px; border-radius: 20px; background: rgba(223, 177, 91, 0.15); color: var(--gold-primary); border: 1px solid rgba(223, 177, 91, 0.3); font-weight: 700; white-space: nowrap; }
 
+        .card-body { margin-bottom: 14px; }
+        .desc-box { font-size: 0.85rem; color: var(--text-gray); line-height: 1.5; background: rgba(0, 0, 0, 0.2); padding: 10px 12px; border-radius: var(--radius-sm); border-right: 3px solid var(--gold-primary); }
+        .desc-en { font-family: var(--font-en); font-size: 0.82rem; color: #999999; margin-top: 4px; display: block; }
+
+        .card-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px dashed rgba(255, 255, 255, 0.08); }
+        .price-tag { display: flex; align-items: baseline; gap: 4px; color: var(--gold-primary); }
+        .price-val { font-size: 1.4rem; font-weight: 800; line-height: 1; }
+        .price-currency { font-size: 0.8rem; font-weight: 700; color: var(--gold-primary); opacity: 0.9; }
+
+        .fav-btn { background: transparent; border: none; color: #555555; font-size: 1.1rem; cursor: pointer; transition: var(--transition); padding: 6px; }
+        .fav-btn:hover, .fav-btn.active { color: #e74c3c; transform: scale(1.2); }
+
+        .no-results { text-align: center; padding: 50px 20px; grid-column: 1 / -1; color: var(--text-gray); }
+        .no-results i { font-size: 3rem; color: var(--gold-primary); margin-bottom: 15px; opacity: 0.6; }
+
+        /* MODAL QR CODE */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 20px;
+            opacity: 0; pointer-events: none; transition: var(--transition); overflow-y: auto;
+        }
+        .modal-overlay.open { opacity: 1; pointer-events: auto; }
         .modal-card {
-            background: #161616;
-            border: 1px solid var(--gold-primary);
-            border-radius: 24px;
-            padding: 28px 22px;
-            width: 100%;
-            max-width: 440px;
-            text-align: center;
-            position: relative;
+            background: #161616; border: 1px solid var(--gold-primary); border-radius: 24px;
+            padding: 28px 22px; width: 100%; max-width: 440px; text-align: center; position: relative;
             box-shadow: 0 20px 50px rgba(0,0,0,0.9), 0 0 30px rgba(223, 177, 91, 0.25);
-            transform: scale(0.92);
-            transition: var(--transition);
-            margin: auto;
+            transform: scale(0.92); transition: var(--transition); margin: auto;
         }
+        .modal-overlay.open .modal-card { transform: scale(1); }
+        .modal-close-btn { position: absolute; top: 15px; left: 15px; background: rgba(255,255,255,0.08); border: none; color: var(--text-gray); width: 32px; height: 32px; border-radius: 50%; cursor: pointer; transition: var(--transition); z-index: 5; }
+        .modal-close-btn:hover { background: var(--gold-primary); color: #121212; }
 
-        .modal-overlay.open .modal-card {
-            transform: scale(1);
-        }
+        .qr-canvas-container { background: #0d0d0d; padding: 10px; border-radius: var(--radius-md); border: 1px solid rgba(223, 177, 91, 0.25); display: inline-block; margin: 15px 0 10px; width: 100%; }
+        #qrCardCanvas { display: block; width: 100%; height: auto; border-radius: 12px; }
 
-        .modal-close-btn {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: rgba(255,255,255,0.08);
-            border: none;
-            color: var(--text-gray);
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: var(--transition);
-            z-index: 5;
-        }
-
-        .modal-close-btn:hover {
-            background: var(--gold-primary);
-            color: #121212;
-        }
-
-        .qr-canvas-container {
-            background: #0d0d0d;
-            padding: 10px;
-            border-radius: var(--radius-md);
-            border: 1px solid rgba(223, 177, 91, 0.25);
-            display: inline-block;
-            margin: 15px 0 10px;
-            box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
-            width: 100%;
-        }
-
-        #qrCardCanvas {
-            display: block;
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-        }
-
-        .modal-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 12px;
-        }
-
+        .modal-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
         .download-btn {
-            width: 100%;
-            padding: 13px 20px;
-            background: var(--gold-gradient);
-            color: #121212;
-            border: none;
-            border-radius: 30px;
-            font-family: var(--font-ar);
-            font-size: 0.95rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            box-shadow: var(--shadow-gold);
+            width: 100%; padding: 13px 20px; background: var(--gold-gradient); color: #121212; border: none;
+            border-radius: 30px; font-family: var(--font-ar); font-size: 0.95rem; font-weight: 700;
+            cursor: pointer; transition: var(--transition); display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: var(--shadow-gold);
         }
-
-        .download-btn:hover {
-            transform: translateY(-2px);
-            background: var(--gold-hover);
-        }
-
+        .download-btn:hover { transform: translateY(-2px); background: var(--gold-hover); }
         .direct-link-btn {
-            width: 100%;
-            padding: 12px 20px;
-            background: rgba(223, 177, 91, 0.1);
-            color: var(--gold-primary);
-            border: 1px solid var(--gold-primary);
-            border-radius: 30px;
-            font-family: var(--font-ar);
-            font-size: 0.92rem;
-            font-weight: 700;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: var(--transition);
+            width: 100%; padding: 12px 20px; background: rgba(223, 177, 91, 0.1); color: var(--gold-primary);
+            border: 1px solid var(--gold-primary); border-radius: 30px; font-family: var(--font-ar); font-size: 0.92rem;
+            font-weight: 700; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; transition: var(--transition);
         }
+        .direct-link-btn:hover { background: var(--gold-primary); color: #121212; box-shadow: var(--shadow-gold); }
+        #tempQrContainer { display: none; }
 
-        .direct-link-btn:hover {
-            background: var(--gold-primary);
-            color: #121212;
-            box-shadow: var(--shadow-gold);
-        }
+        /* FOOTER */
+        .footer { background: #0a0a0a; border-top: 1px solid rgba(223, 177, 91, 0.15); padding: 40px 20px 25px; text-align: center; margin-top: auto; }
+        .footer-brand { font-size: 1.2rem; font-weight: 800; color: var(--gold-primary); letter-spacing: 2px; margin-bottom: 15px; }
+        .social-links { display: flex; justify-content: center; gap: 16px; margin-bottom: 25px; }
+        .social-icon { width: 44px; height: 44px; border-radius: 50%; background: var(--bg-surface); border: 1px solid var(--border-card); color: var(--gold-primary); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; text-decoration: none; transition: var(--transition); }
+        .social-icon:hover { background: var(--gold-primary); color: #121212; transform: translateY(-4px); box-shadow: var(--shadow-gold); }
+        .copyright { color: var(--text-muted); font-size: 0.85rem; font-family: var(--font-en); border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 18px; }
 
-        /* Hidden QR Helper Container for QRCode Library */
-        #tempQrContainer {
-            display: none;
-        }
-
-        /* ==========================================
-           FOOTER
-           ========================================== */
-        .footer {
-            background: #0a0a0a;
-            border-top: 1px solid rgba(223, 177, 91, 0.15);
-            padding: 40px 20px 25px;
-            text-align: center;
-            margin-top: auto;
-        }
-
-        .footer-logo {
-            width: 55px;
-            height: 55px;
-            margin-bottom: 10px;
-            opacity: 0.88;
-        }
-
-        .footer-brand {
-            font-size: 1.2rem;
-            font-weight: 800;
-            color: var(--gold-primary);
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin-bottom: 25px;
-        }
-
-        .social-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: var(--bg-surface);
-            border: 1px solid var(--border-card);
-            color: var(--gold-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .social-icon:hover {
-            background: var(--gold-primary);
-            color: #121212;
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-gold);
-        }
-
-        .copyright {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            font-family: var(--font-en);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding-top: 18px;
-        }
-
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            width: 42px;
-            height: 42px;
-            background: var(--gold-gradient);
-            color: #121212;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            z-index: 90;
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
+        .back-to-top { position: fixed; bottom: 20px; left: 20px; width: 42px; height: 42px; background: var(--gold-gradient); color: #121212; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.5); opacity: 0; visibility: hidden; transition: var(--transition); z-index: 90; }
+        .back-to-top.visible { opacity: 1; visibility: visible; }
 
         @media (max-width: 576px) {
             .brand-title { font-size: 1.8rem; }
             .menu-grid { grid-template-columns: 1fr; }
             .section-header { margin: 20px 0 15px; }
-            .menu-card { padding: 16px; }
+            .menu-card { padding: 14px; }
             .modal-card { padding: 20px 16px; }
         }
     </style>
@@ -721,7 +260,6 @@
         <div class="header-bg-glow"></div>
         <div class="container">
             <div class="logo-wrapper">
-                <!-- ELEGANT BAYROOT CAFE EMBLEM LOGO (CEDAR & COFFEE) -->
                 <svg class="logo-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -734,36 +272,16 @@
                             <feComposite in="SourceGraphic" in2="blur" operator="over" />
                         </filter>
                     </defs>
-                    
-                    <!-- Outer Decorative Rings -->
                     <circle cx="100" cy="100" r="92" stroke="url(#goldGrad)" stroke-width="2.5" stroke-dasharray="6 3" opacity="0.75"/>
                     <circle cx="100" cy="100" r="84" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.4"/>
-                    
-                    <!-- Laurel Wreath Flanking Wings -->
                     <path d="M45 105 C40 85 55 65 72 52 C65 68 62 88 70 105 Z" fill="url(#goldGrad)" opacity="0.9"/>
-                    <path d="M40 120 C38 102 50 85 64 74 C58 90 58 108 66 122 Z" fill="url(#goldGrad)" opacity="0.7"/>
-                    
                     <path d="M155 105 C160 85 145 65 128 52 C135 68 138 88 130 105 Z" fill="url(#goldGrad)" opacity="0.9"/>
-                    <path d="M160 120 C162 102 150 85 136 74 C142 90 142 108 134 122 Z" fill="url(#goldGrad)" opacity="0.7"/>
-                    
-                    <!-- Coffee Saucer -->
                     <path d="M66 138 Q100 147 134 138" stroke="url(#goldGrad)" stroke-width="4.5" stroke-linecap="round"/>
-                    
-                    <!-- Premium Coffee Cup -->
                     <path d="M72 94 H128 L122 128 C122 134 112 138 100 138 C88 138 78 134 78 128 L72 94 Z" fill="url(#goldGrad)" filter="url(#goldGlow)"/>
-                    <path d="M128 98 H137 C142 98 145 102 145 107 C145 112 142 116 137 116 H125" stroke="url(#goldGrad)" stroke-width="4" fill="none" stroke-linecap="round"/>
-                    
-                    <!-- Cedar Tree Emblem Rising in Coffee Steam -->
                     <polygon points="100,34 92,48 108,48" fill="url(#goldGrad)"/>
                     <polygon points="100,44 86,60 114,60" fill="url(#goldGrad)"/>
                     <polygon points="100,56 80,75 120,75" fill="url(#goldGrad)"/>
                     <rect x="97" y="75" width="6" height="15" fill="url(#goldGrad)"/>
-                    
-                    <!-- Delicate Steam Swirls -->
-                    <path d="M84 88 Q78 80 84 74 M116 88 Q122 80 116 74" stroke="url(#goldGrad)" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
-                    
-                    <!-- Crown Star -->
-                    <polygon points="100,16 102,21 107,22 103,25 104,30 100,27 96,30 97,25 93,22 98,21" fill="url(#goldGrad)"/>
                 </svg>
             </div>
             
@@ -783,25 +301,47 @@
     <!-- STICKY CONTROLS -->
     <div class="sticky-controls">
         <div class="container">
-            <!-- Search Bar -->
             <div class="search-box-wrapper">
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
                 <input type="text" id="searchInput" class="search-input" placeholder="ابحث عن مشروبك المفضّل أو المكونات... (Search menu)">
             </div>
             
-            <!-- Category Tabs -->
             <nav class="category-nav">
                 <button class="cat-tab active" data-category="all">
                     <i class="fa-solid fa-border-all"></i>
-                    الكل <span class="badge-count en-text" id="count-all">16</span>
+                    الكل <span class="badge-count en-text" id="count-all">0</span>
+                </button>
+                <button class="cat-tab" data-category="fresh-juices">
+                    <i class="fa-solid fa-lemon"></i>
+                    عصائر فريش <span class="badge-count en-text" id="count-juices">0</span>
+                </button>
+                <button class="cat-tab" data-category="juice-mixes">
+                    <i class="fa-solid fa-glass-water"></i>
+                    المكسات <span class="badge-count en-text" id="count-mixes">0</span>
                 </button>
                 <button class="cat-tab" data-category="cocktails">
                     <i class="fa-solid fa-martini-glass-citrus"></i>
-                    الكوكتيلات <span class="badge-count en-text" id="count-cocktails">9</span>
+                    الكوكتيلات <span class="badge-count en-text" id="count-cocktails">0</span>
                 </button>
                 <button class="cat-tab" data-category="soda-cocktails">
                     <i class="fa-solid fa-whiskey-glass"></i>
-                    كوكتيل الصودا <span class="badge-count en-text" id="count-soda">7</span>
+                    كوكتيل الصودا <span class="badge-count en-text" id="count-soda">0</span>
+                </button>
+                <button class="cat-tab" data-category="milkshake">
+                    <i class="fa-solid fa-glass-water-droplet"></i>
+                    ميلك شيك <span class="badge-count en-text" id="count-milkshake">0</span>
+                </button>
+                <button class="cat-tab" data-category="ice-cream">
+                    <i class="fa-solid fa-ice-cream"></i>
+                    آيس كريم <span class="badge-count en-text" id="count-icecream">0</span>
+                </button>
+                <button class="cat-tab" data-category="waffle">
+                    <i class="fa-solid fa-cake-candles"></i>
+                    حلويات ووافل <span class="badge-count en-text" id="count-waffle">0</span>
+                </button>
+                <button class="cat-tab" data-category="shisha">
+                    <i class="fa-solid fa-smog"></i>
+                    الشيشة <span class="badge-count en-text" id="count-shisha">0</span>
                 </button>
                 <button class="cat-tab" data-category="favorites">
                     <i class="fa-solid fa-heart" style="color:#e74c3c;"></i>
@@ -815,12 +355,40 @@
     <main class="menu-main">
         <div class="container">
             
+            <!-- FRESH JUICES SECTION -->
+            <section class="menu-section" id="section-fresh-juices">
+                <div class="section-header">
+                    <div class="section-title">
+                        <i class="fa-solid fa-lemon"></i>
+                        قسم العصائر الفريش (FRESH JUICES)
+                    </div>
+                    <span class="section-subtitle">100% Fresh Natural</span>
+                </div>
+                <div class="note-badge">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <span>إضافة 5 جنيه لتحويل العصير إلى سموزي (+5 EGP for Smoothie upgrade)</span>
+                </div>
+                <div class="menu-grid" id="grid-fresh-juices"></div>
+            </section>
+
+            <!-- JUICE MIXES SECTION -->
+            <section class="menu-section" id="section-juice-mixes">
+                <div class="section-header">
+                    <div class="section-title">
+                        <i class="fa-solid fa-glass-water"></i>
+                        قسم المكسات (JUICE MIXES)
+                    </div>
+                    <span class="section-subtitle">Special Blends</span>
+                </div>
+                <div class="menu-grid" id="grid-juice-mixes"></div>
+            </section>
+
             <!-- COCKTAILS SECTION -->
             <section class="menu-section" id="section-cocktails">
                 <div class="section-header">
                     <div class="section-title">
-                        <i class="fa-solid fa-cocktail"></i>
-                        قسم الكوكتيلات (COCKTAILS)
+                        <i class="fa-solid fa-martini-glass-citrus"></i>
+                        قسم الكوكتيلات الخاصة (COCKTAILS)
                     </div>
                     <span class="section-subtitle">Fresh Fruit Mixes</span>
                 </div>
@@ -831,7 +399,7 @@
             <section class="menu-section" id="section-soda-cocktails">
                 <div class="section-header">
                     <div class="section-title">
-                        <i class="fa-solid fa-wine-bottle"></i>
+                        <i class="fa-solid fa-whiskey-glass"></i>
                         قسم كوكتيل الصودا (SODA COCKTAILS)
                     </div>
                     <span class="section-subtitle">Fizzy & Refreshing</span>
@@ -839,23 +407,70 @@
                 <div class="menu-grid" id="grid-soda-cocktails"></div>
             </section>
 
+            <!-- MILKSHAKE SECTION -->
+            <section class="menu-section" id="section-milkshake">
+                <div class="section-header">
+                    <div class="section-title">
+                        <i class="fa-solid fa-glass-water-droplet"></i>
+                        قسم ميلك شيك (MILKSHAKE)
+                    </div>
+                    <span class="section-subtitle">Thick & Creamy Shake</span>
+                </div>
+                <div class="menu-grid" id="grid-milkshake"></div>
+            </section>
+
+            <!-- ICE CREAM SECTION -->
+            <section class="menu-section" id="section-ice-cream">
+                <div class="section-header">
+                    <div class="section-title">
+                        <i class="fa-solid fa-ice-cream"></i>
+                        قسم الآيس كريم (ICE CREAM)
+                    </div>
+                    <span class="section-subtitle">Sweet Cold Bowls</span>
+                </div>
+                <div class="menu-grid" id="grid-ice-cream"></div>
+            </section>
+
+            <!-- WAFFLE & DESSERTS SECTION -->
+            <section class="menu-section" id="section-waffle">
+                <div class="section-header">
+                    <div class="section-title">
+                        <i class="fa-solid fa-cake-candles"></i>
+                        قسم الوافل والحلويات (WAFFLE & DESSERTS)
+                    </div>
+                    <span class="section-subtitle">Delicious Sweet Treats</span>
+                </div>
+                <div class="menu-grid" id="grid-waffle"></div>
+            </section>
+
+            <!-- SHISHA SECTION -->
+            <section class="menu-section" id="section-shisha">
+                <div class="section-header">
+                    <div class="section-title">
+                        <i class="fa-solid fa-smog"></i>
+                        قسم الشيشة (SHISHA)
+                    </div>
+                    <span class="section-subtitle">Premium Hookah Flavors</span>
+                </div>
+                <div class="menu-grid" id="grid-shisha"></div>
+            </section>
+
             <!-- NO RESULTS MESSAGE -->
             <div id="noResults" class="no-results" style="display: none;">
                 <i class="fa-solid fa-compass"></i>
-                <h3>لم يتم العثور على نتائج matching your search</h3>
+                <h3>لم يتم العثور على نتائج للبحث</h3>
                 <p>جرب البحث بكلمة أخرى أو اختر قسم آخر من الأعلى.</p>
             </div>
 
         </div>
     </main>
 
-    <!-- PRINTABLE QR CODE CARD MODAL -->
+    <!-- PRINTABLE QR CODE MODAL -->
     <div class="modal-overlay" id="qrModal">
         <div class="modal-card">
             <button class="modal-close-btn" id="closeQrBtn" title="إغلاق"><i class="fa-solid fa-xmark"></i></button>
-            
-            <h2 style="color:var(--gold-primary); font-size:1.3rem; margin-top:2px;">كارت الـ QR Code للطباعة</h2>
-            <p style="color:var(--text-gray); font-size:0.85rem; margin-top:2px;">تصميم فاخر وجاهز للطباعة مباشرة على ستيكرات الطاولات</p>
+            <h2 style="color:var(--gold-primary); font-size:1.3rem;">كارت الـ QR Code للطباعة</h2>
+            <p style="color:var(--text-gray); font-size:0.85rem;">تصميم فاخر وجاهز للطباعة مباشرة على الطاولات</p>
             
             <div class="qr-canvas-container">
                 <canvas id="qrCardCanvas" width="600" height="820"></canvas>
@@ -864,314 +479,174 @@
             <div class="modal-actions">
                 <button class="download-btn" id="downloadQrCardBtn">
                     <i class="fa-solid fa-download"></i>
-                    تحميل كارت الـ QR للطباعة (Download QR Card PNG)
+                    تحميل كارت الـ QR للطباعة (Download PNG)
                 </button>
-
                 <a href="#" target="_blank" class="direct-link-btn" id="openDirectLinkBtn">
                     <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                    Open Menu directly | فتح المنيو مباشرة
+                    Open Menu Directly | فتح المنيو مباشرة
                 </a>
             </div>
         </div>
     </div>
 
-    <!-- Hidden element for QRCode JS generation -->
     <div id="tempQrContainer"></div>
 
     <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
-            <svg class="footer-logo" viewBox="0 0 200 200" fill="none">
-                <circle cx="100" cy="100" r="85" stroke="#DFB15B" stroke-width="3" opacity="0.6"/>
-                <polygon points="100,45 92,60 108,60" fill="#DFB15B"/>
-                <polygon points="100,55 86,72 114,72" fill="#DFB15B"/>
-                <polygon points="100,68 80,88 120,88" fill="#DFB15B"/>
-                <rect x="97" y="88" width="6" height="12" fill="#DFB15B"/>
-                <path d="M72 108 H128 L122 138 H78 Z" fill="#DFB15B"/>
-            </svg>
             <div class="footer-brand en-text">BAYROOT CAFE</div>
-            
             <div class="social-links">
-                <a href="https://instagram.com" target="_blank" class="social-icon" title="Instagram">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="https://facebook.com" target="_blank" class="social-icon" title="Facebook">
-                    <i class="fa-brands fa-facebook-f"></i>
-                </a>
-                <a href="https://wa.me" target="_blank" class="social-icon" title="WhatsApp">
-                    <i class="fa-brands fa-whatsapp"></i>
-                </a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-whatsapp"></i></a>
             </div>
-
-            <p class="copyright">
-                Bayroot Cafe - All Rights Reserved &copy; <span id="year"></span>
-            </p>
+            <p class="copyright">Bayroot Cafe - All Rights Reserved &copy; <span id="year"></span></p>
         </div>
     </footer>
 
-    <!-- BACK TO TOP BUTTON -->
-    <button class="back-to-top" id="backToTopBtn" title="للأعلى">
-        <i class="fa-solid fa-arrow-up"></i>
-    </button>
+    <button class="back-to-top" id="backToTopBtn" title="للأعلى"><i class="fa-solid fa-arrow-up"></i></button>
 
-    <!-- JS LOGIC & DATA -->
     <script>
-        // Set dynamic copyright year
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        /* ==========================================
-           ROUTING & DIRECT GITHUB PAGES LINK
-           ========================================== */
-        const GITHUB_PAGES_URL = "https://raphael00928.github.io/menu-online-test/";
-        // Fallback to current page URL if hosted live
-        const MENU_TARGET_URL = (window.location.protocol.startsWith('http')) ? window.location.href : GITHUB_PAGES_URL;
+        const GITHUB_PAGES_URL = "https://raphaeljohnk09-art.github.io/Bayroot-cafe/";
+        document.getElementById('openDirectLinkBtn').href = GITHUB_PAGES_URL;
 
-        // Set direct link button URL
-        const openDirectLinkBtn = document.getElementById('openDirectLinkBtn');
-        openDirectLinkBtn.href = MENU_TARGET_URL;
+        const fallbackImage = 'images/default.jpg';
 
-        /* ==========================================
-           MENU DATA ITEMS
-           ========================================== */
         const menuItems = [
+            // FRESH JUICES
+            { id: 'fj1', category: 'fresh-juices', nameAr: 'مانجو فريش', nameEn: 'Fresh Mango', descAr: 'عصير مانجو طبيعي طازج', descEn: 'Fresh Natural Mango Juice', price: 35, tagAr: 'طبيعي', icon: 'fa-lemon', image: 'images/mango.jpg' },
+            { id: 'fj2', category: 'fresh-juices', nameAr: 'فراولة فريش', nameEn: 'Fresh Strawberry', descAr: 'عصير فراولة طبيعي طازج', descEn: 'Fresh Natural Strawberry Juice', price: 35, tagAr: 'طبيعي', icon: 'fa-lemon', image: 'images/strawberry.jpg' },
+            { id: 'fj3', category: 'fresh-juices', nameAr: 'برتقال فريش', nameEn: 'Fresh Orange', descAr: 'عصير برتقال طبيعي معصور طازج', descEn: 'Freshly Squeezed Orange Juice', price: 35, tagAr: 'فيتامين C', icon: 'fa-lemon', image: 'images/orange.jpg' },
+            { id: 'fj4', category: 'fresh-juices', nameAr: 'جوافة فريش', nameEn: 'Fresh Guava', descAr: 'عصير جوافة طازجة', descEn: 'Fresh Guava Juice', price: 35, tagAr: 'غني', icon: 'fa-lemon', image: 'images/guava.jpg' },
+            { id: 'fj5', category: 'fresh-juices', nameAr: 'كيوي فريش', nameEn: 'Fresh Kiwi', descAr: 'عصير كيوي طبيعي طازج', descEn: 'Fresh Kiwi Juice', price: 35, tagAr: 'صحي', icon: 'fa-lemon', image: 'images/kiwi.jpg' },
+            { id: 'fj6', category: 'fresh-juices', nameAr: 'عناب فريش', nameEn: 'Fresh Karkadeh / Jujube', descAr: 'عصير كركديه / عناب طبيعي مثلج', descEn: 'Cold Natural Hibiscus / Karkadeh', price: 25, tagAr: 'مثلج', icon: 'fa-glass-water', image: 'images/karkadeh.jpg' },
+            { id: 'fj7', category: 'fresh-juices', nameAr: 'ليمون فريش', nameEn: 'Fresh Lemon', descAr: 'عصير ليمون طازج منعش', descEn: 'Fresh Lemon Juice', price: 25, tagAr: 'حمضيات', icon: 'fa-lemon', image: 'images/lemon.jpg' },
+            { id: 'fj8', category: 'fresh-juices', nameAr: 'دوم فريش', nameEn: 'Fresh Doum', descAr: 'عصير دوم طبيعي ممتاز', descEn: 'Natural Doum Drink', price: 25, tagAr: 'طبيعي', icon: 'fa-glass-water', image: 'images/doum.jpg' },
+            { id: 'fj9', category: 'fresh-juices', nameAr: 'ليمون نعناع', nameEn: 'Lemon Mint', descAr: 'عصير ليمون طازج مع أوراق النعناع', descEn: 'Fresh Lemon Blended with Mint Leaves', price: 30, tagAr: 'الأكثر طلباً', icon: 'fa-lemon', image: 'images/lemon-mint.jpg' },
+            { id: 'fj10', category: 'fresh-juices', nameAr: 'رمان فريش', nameEn: 'Fresh Pomegranate', descAr: 'عصير رمان طبيعي طازج', descEn: 'Fresh Pomegranate Juice', price: 35, tagAr: 'مضاد أكسدة', icon: 'fa-lemon', image: 'images/pomegranate.jpg' },
+            { id: 'fj11', category: 'fresh-juices', nameAr: 'كنتالوب فريش', nameEn: 'Fresh Cantaloupe', descAr: 'عصير كنتالوب منعش', descEn: 'Fresh Cantaloupe Melon Juice', price: 30, tagAr: 'منعش', icon: 'fa-lemon', image: 'images/cantaloupe.jpg' },
+            { id: 'fj12', category: 'fresh-juices', nameAr: 'بطيخ فريش', nameEn: 'Fresh Watermelon', descAr: 'عصير بطيخ طازج مثلج', descEn: 'Cold Fresh Watermelon Juice', price: 30, tagAr: 'الصيف', icon: 'fa-lemon', image: 'images/watermelon.jpg' },
+            { id: 'fj13', category: 'fresh-juices', nameAr: 'جوافة بالحليب', nameEn: 'Guava with Milk', descAr: 'جوافة طازجة مخفوقة بالحليب', descEn: 'Fresh Guava Blended with Milk', price: 35, tagAr: 'كريمي', icon: 'fa-glass-water', image: 'images/guava-milk.jpg' },
+            { id: 'fj14', category: 'fresh-juices', nameAr: 'دوم بالحليب', nameEn: 'Doum with Milk', descAr: 'عصير دوم طبيعي مع الحليب', descEn: 'Natural Doum with Creamy Milk', price: 30, tagAr: 'مميز', icon: 'fa-glass-water', image: 'images/doum-milk.jpg' },
+            { id: 'fj15', category: 'fresh-juices', nameAr: 'بلح بالحليب', nameEn: 'Dates with Milk', descAr: 'بلح طازج مخفوق مع الحليب والعسل', descEn: 'Fresh Dates Blended with Milk & Honey', price: 35, tagAr: 'طاقة', icon: 'fa-bolt', image: 'images/dates-milk.jpg' },
+            { id: 'fj16', category: 'fresh-juices', nameAr: 'موز بالحليب', nameEn: 'Banana with Milk', descAr: 'موز طازج مع الحليب الغني', descEn: 'Fresh Banana with Rich Milk', price: 35, tagAr: 'مغذي', icon: 'fa-glass-water', image: 'images/banana-milk.jpg' },
+
+            // JUICE MIXES
+            { id: 'jm1', category: 'juice-mixes', nameAr: 'بيروت كوكتيل', nameEn: 'Beirut Cocktail', descAr: '3 أنواع عصير طازج + آيس كريم', descEn: '3 Fresh Juice Types + Ice Cream Scoop', price: 45, tagAr: 'توقيع بايروت', icon: 'fa-crown', image: 'images/beirut-cocktail.jpg' },
+            { id: 'jm2', category: 'juice-mixes', nameAr: 'صن شاين', nameEn: 'Sunshine', descAr: 'سفن أب / أسبريت + رمان وسيروب', descEn: 'Sprite / 7Up + Grenadine Syrup', price: 35, tagAr: 'فوار', icon: 'fa-sun', image: 'images/sunshine.jpg' },
+            { id: 'jm3', category: 'juice-mixes', nameAr: 'فلوريدا مكس', nameEn: 'Florida Mix', descAr: 'مانجو + جوافة + برتقال', descEn: 'Fresh Mango, Guava & Orange', price: 45, tagAr: 'استوائي', icon: 'fa-lemon', image: 'images/florida-mix.jpg' },
+            { id: 'jm4', category: 'juice-mixes', nameAr: 'هاواي كوكتيل', nameEn: 'Hawaiian Cocktail', descAr: 'مانجو + كيوي + أناناس', descEn: 'Fresh Mango, Kiwi & Pineapple', price: 50, tagAr: 'منعش جداً', icon: 'fa-cocktail', image: 'images/hawaiian-cocktail.jpg' },
+            { id: 'jm5', category: 'juice-mixes', nameAr: 'بلو ليمون', nameEn: 'Blue Lemon', descAr: 'ليمون + برتقال + نكهة البلو فليفور', descEn: 'Lemon, Orange & Blue Flavor', price: 45, tagAr: 'مظهر ساحر', icon: 'fa-water', image: 'images/blue-lemon.jpg' },
+            { id: 'jm6', category: 'juice-mixes', nameAr: 'جرين سمر', nameEn: 'Green Summer', descAr: 'كيوي + كنتالوب + أناناس', descEn: 'Kiwi, Cantaloupe & Pineapple', price: 50, tagAr: 'انتعاش الصيف', icon: 'fa-leaf', image: 'images/green-summer.jpg' },
+            { id: 'jm7', category: 'juice-mixes', nameAr: 'سبيشل كوكتيل', nameEn: 'Special Cocktail', descAr: 'كيوي + مانجو طازج', descEn: 'Fresh Kiwi & Mango Blend', price: 45, tagAr: 'سبيشل', icon: 'fa-star', image: 'images/special-cocktail.jpg' },
+            { id: 'jm8', category: 'juice-mixes', nameAr: 'أمازون', nameEn: 'Amazon', descAr: 'كيوي + خوخ + أناناس', descEn: 'Kiwi, Peach & Pineapple', price: 45, tagAr: 'مكس فاكهة', icon: 'fa-tree', image: 'images/amazon.jpg' },
+            { id: 'jm9', category: 'juice-mixes', nameAr: 'باور بيروت 1', nameEn: 'Power Beirut 1', descAr: 'بلح + حليب + عسل', descEn: 'Fresh Dates, Milk & Honey', price: 45, tagAr: 'طاقة عالية', icon: 'fa-bolt', image: 'images/power-beirut-1.jpg' },
+            { id: 'jm10', category: 'juice-mixes', nameAr: 'باور بيروت 2', nameEn: 'Power Beirut 2', descAr: 'كيوي + حليب + عسل', descEn: 'Fresh Kiwi, Milk & Honey', price: 45, tagAr: 'صحي جداً', icon: 'fa-heart-pulse', image: 'images/power-beirut-2.jpg' },
+
             // COCKTAILS
-            {
-                id: 'c1',
-                category: 'cocktails',
-                nameAr: 'فلوريدا',
-                nameEn: 'Florida',
-                descAr: 'مكس مانجو وفراولة وجوافة',
-                descEn: 'Mix Mango, Strawberry & Guava',
-                price: 65,
-                tagAr: 'الأكثر طلباً',
-                tagEn: 'Bestseller',
-                icon: 'fa-cocktail'
-            },
-            {
-                id: 'c2',
-                category: 'cocktails',
-                nameAr: 'ايزي باشون',
-                nameEn: 'Easy Passion',
-                descAr: 'مكس مانجو وفراولة وآيس فانيليا',
-                descEn: 'Mix Mango, Strawberry & Vanilla Ice Cream',
-                price: 65,
-                tagAr: 'كريمي مميز',
-                tagEn: 'Creamy Vanilla',
-                icon: 'fa-ice-cream'
-            },
-            {
-                id: 'c3',
-                category: 'cocktails',
-                nameAr: 'تروبيكال',
-                nameEn: 'Tropical',
-                descAr: 'مكس مانجو وكيوي وبلو بيري',
-                descEn: 'Mix Mango, Kiwi & Blueberry',
-                price: 75,
-                tagAr: 'استوائي منعش',
-                tagEn: 'Exotic Mix',
-                icon: 'fa-lemon'
-            },
-            {
-                id: 'c4',
-                category: 'cocktails',
-                nameAr: 'بينا كولادا',
-                nameEn: 'Pina Colada',
-                descAr: 'أناناس وحليب وجوز هند',
-                descEn: 'Pineapple, Milk & Coconut',
-                price: 70,
-                tagAr: 'كلاسيك غني',
-                tagEn: 'Classic Tropics',
-                icon: 'fa-glass-martini-alt'
-            },
-            {
-                id: 'c5',
-                category: 'cocktails',
-                nameAr: 'فور سيزون',
-                nameEn: 'Four Seasons',
-                descAr: 'مكس مانجو وفراولة وجوافة وموز',
-                descEn: 'Mix Mango, Strawberry, Guava & Banana',
-                price: 70,
-                tagAr: 'فواكه طازجة',
-                tagEn: 'Fresh Fruits',
-                icon: 'fa-leaf'
-            },
-            {
-                id: 'c6',
-                category: 'cocktails',
-                nameAr: 'فيجا',
-                nameEn: 'Vega',
-                descAr: 'مكس بلح وموز وحليب وعسل ومكسرات',
-                descEn: 'Dates, Banana, Milk, Honey & Nuts',
-                price: 75,
-                tagAr: 'طاقة ومكسرات',
-                tagEn: 'Energy Boost',
-                icon: 'fa-bolt'
-            },
-            {
-                id: 'c7',
-                category: 'cocktails',
-                nameAr: 'كوب جاك',
-                nameEn: 'Jack Cup',
-                descAr: 'مكس الفاكهة الطبيعية مع الآيس كريم',
-                descEn: 'Natural Fresh Fruit Mix with Ice Cream',
-                price: 95,
-                tagAr: 'توقيع بايروت',
-                tagEn: 'Bayroot Special',
-                icon: 'fa-crown'
-            },
-            {
-                id: 'c8',
-                category: 'cocktails',
-                nameAr: 'بنسوار',
-                nameEn: 'Bonsoir',
-                descAr: 'مكس مانجو وموز ومكسرات وفراولة وآيس فانيليا وعسل',
-                descEn: 'Mango, Banana, Nuts, Strawberry, Vanilla Ice Cream & Honey',
-                price: 75,
-                tagAr: 'فاخر جداً',
-                tagEn: 'Signature',
-                icon: 'fa-star'
-            },
-            {
-                id: 'c9',
-                category: 'cocktails',
-                nameAr: 'فروت سلاط',
-                nameEn: 'Fruit Salad',
-                descAr: 'مكس الفاكهة الطبيعية',
-                descEn: 'Fresh Natural Fruit Mix',
-                price: 90,
-                tagAr: 'طبيعي ١٠٠٪',
-                tagEn: '100% Natural',
-                icon: 'fa-apple-whole'
-            },
+            { id: 'c1', category: 'cocktails', nameAr: 'فلوريدا', nameEn: 'Florida', descAr: 'مكس مانجو وفراولة وجوافة', descEn: 'Mix Mango, Strawberry & Guava', price: 65, tagAr: 'الأكثر طلباً', icon: 'fa-cocktail', image: 'images/florida.jpg' },
+            { id: 'c2', category: 'cocktails', nameAr: 'ايزي باشون', nameEn: 'Easy Passion', descAr: 'مكس مانجو وفراولة وآيس فانيليا', descEn: 'Mix Mango, Strawberry & Vanilla Ice Cream', price: 65, tagAr: 'كريمي', icon: 'fa-ice-cream', image: 'images/easy-passion.jpg' },
+            { id: 'c3', category: 'cocktails', nameAr: 'تروبيكال', nameEn: 'Tropical', descAr: 'مكس مانجو وكيوي وبلو بيري', descEn: 'Mix Mango, Kiwi & Blueberry', price: 75, tagAr: 'استوائي', icon: 'fa-lemon', image: 'images/tropical.jpg' },
+            { id: 'c4', category: 'cocktails', nameAr: 'بينا كولادا', nameEn: 'Pina Colada', descAr: 'أناناس وحليب وجوز هند', descEn: 'Pineapple, Milk & Coconut', price: 70, tagAr: 'كلاسيك', icon: 'fa-glass-martini-alt', image: 'images/pina-colada.jpg' },
+            { id: 'c5', category: 'cocktails', nameAr: 'فور سيزون', nameEn: 'Four Seasons', descAr: 'مكس مانجو وفراولة وجوافة وموز', descEn: 'Mix Mango, Strawberry, Guava & Banana', price: 70, tagAr: 'فواكه مشكلة', icon: 'fa-leaf', image: 'images/four-seasons.jpg' },
+            { id: 'c6', category: 'cocktails', nameAr: 'فيجا', nameEn: 'Vega', descAr: 'مكس بلح وموز وحليب وعسل ومكسرات', descEn: 'Dates, Banana, Milk, Honey & Nuts', price: 75, tagAr: 'مكسرات وطاقة', icon: 'fa-bolt', image: 'images/vega.jpg' },
+            { id: 'c7', category: 'cocktails', nameAr: 'كوب جاك', nameEn: 'Jack Cup', descAr: 'مكس الفاكهة الطبيعية مع الآيس كريم', descEn: 'Natural Fresh Fruit Mix with Ice Cream', price: 95, tagAr: 'فاخر', icon: 'fa-crown', image: 'images/jack-cup.jpg' },
+            { id: 'c8', category: 'cocktails', nameAr: 'بنسوار', nameEn: 'Bonsoir', descAr: 'مكس مانجو وموز ومكسرات وفراولة وآيس فانيليا وعسل', descEn: 'Mango, Banana, Nuts, Strawberry & Ice Cream', price: 75, tagAr: 'توقيع', icon: 'fa-star', image: 'images/bonsoir.jpg' },
+            { id: 'c9', category: 'cocktails', nameAr: 'فروت سلاط', nameEn: 'Fruit Salad', descAr: 'مكس الفاكهة الطبيعية', descEn: 'Fresh Natural Fruit Mix', price: 90, tagAr: 'طازج', icon: 'fa-apple-whole', image: 'images/fruit-salad.jpg' },
 
             // SODA COCKTAILS
-            {
-                id: 's1',
-                category: 'soda-cocktails',
-                nameAr: 'صودا منت',
-                nameEn: 'Soda Mint',
-                descAr: 'مكس ليمون ونعناع وسفن أوب',
-                descEn: 'Mix Lemon, Mint & 7Up',
-                price: 65,
-                tagAr: 'منعش للغاية',
-                tagEn: 'Refreshing',
-                icon: 'fa-mint-condition'
-            },
-            {
-                id: 's2',
-                category: 'soda-cocktails',
-                nameAr: 'صن شاين',
-                nameEn: 'Sunshine',
-                descAr: 'مكس فراولة وبرتقال وسفن أوب',
-                descEn: 'Mix Strawberry, Orange & 7Up',
-                price: 65,
-                tagAr: 'حمضيات وفوار',
-                tagEn: 'Citrus Spark',
-                icon: 'fa-sun'
-            },
-            {
-                id: 's3',
-                category: 'soda-cocktails',
-                nameAr: 'شيري',
-                nameEn: 'Cherry',
-                descAr: 'مكس كرز وليمون وكولا',
-                descEn: 'Mix Cherry, Lemon & Cola',
-                price: 55,
-                tagAr: 'مفضل الجميع',
-                tagEn: 'Fizzy Cherry',
-                icon: 'fa-wine-glass'
-            },
-            {
-                id: 's4',
-                category: 'soda-cocktails',
-                nameAr: 'بلو سكاي',
-                nameEn: 'Blue Sky',
-                descAr: 'مكس بلو كوراساو وأناناس وسفن أوب',
-                descEn: 'Mix Blue Curacao, Pineapple & 7Up',
-                price: 70,
-                tagAr: 'أجواء البحر',
-                tagEn: 'Ocean Vibe',
-                icon: 'fa-water'
-            },
-            {
-                id: 's5',
-                category: 'soda-cocktails',
-                nameAr: 'موخيتو',
-                nameEn: 'Mojito',
-                descAr: 'مكس نعناع وليمون وسفن أوب ونكهة الموهيتو',
-                descEn: 'Mix Mint, Lemon, 7Up & Mojito Flavor',
-                price: 75,
-                tagAr: 'الأكثر إقبالاً',
-                tagEn: 'Top Choice',
-                icon: 'fa-glass-whiskey'
-            },
-            {
-                id: 's6',
-                category: 'soda-cocktails',
-                nameAr: 'فروت باشون',
-                nameEn: 'Fruit Passion',
-                descAr: 'مكس خوخ وأناناس وباشون فروت وبرتقال وسفن أوب',
-                descEn: 'Mix Peach, Pineapple, Passion Fruit, Orange & 7Up',
-                price: 90,
-                tagAr: 'انفجار النكهات',
-                tagEn: 'Flavor Explosion',
-                icon: 'fa-fire'
-            },
-            {
-                id: 's7',
-                category: 'soda-cocktails',
-                nameAr: 'مكس انرجي',
-                nameEn: 'Mix Energy',
-                descAr: 'من اختيارك (جوز هند، توت، شيري، بلو بيري، باشون، ريد بل)',
-                descEn: 'Your Choice (Coconut, Berries, Cherry, Blueberry, Passion Fruit, Red Bull)',
-                price: 95,
-                tagAr: 'طاقة قصوى',
-                tagEn: 'Max Energy',
-                icon: 'fa-bolt'
-            }
+            { id: 's1', category: 'soda-cocktails', nameAr: 'صودا منت', nameEn: 'Soda Mint', descAr: 'مكس ليمون ونعناع وسفن أب', descEn: 'Mix Lemon, Mint & 7Up', price: 65, tagAr: 'منعش', icon: 'fa-whiskey-glass', image: 'images/soda-mint.jpg' },
+            { id: 's2', category: 'soda-cocktails', nameAr: 'شيري', nameEn: 'Cherry', descAr: 'مكس كرز وليمون وكولا', descEn: 'Mix Cherry, Lemon & Cola', price: 55, tagAr: 'مفضل', icon: 'fa-wine-glass', image: 'images/cherry.jpg' },
+            { id: 's3', category: 'soda-cocktails', nameAr: 'بلو سكاي', nameEn: 'Blue Sky', descAr: 'مكس بلو كوراساو وأناناس وسفن أب', descEn: 'Mix Blue Curacao, Pineapple & 7Up', price: 70, tagAr: 'بلو', icon: 'fa-water', image: 'images/blue-sky.jpg' },
+            { id: 's4', category: 'soda-cocktails', nameAr: 'موخيتو', nameEn: 'Mojito', descAr: 'مكس نعناع وليمون وسفن أب ونكهة الموهيتو', descEn: 'Mix Mint, Lemon, 7Up & Mojito Flavor', price: 75, tagAr: 'توب', icon: 'fa-glass-whiskey', image: 'images/mojito.jpg' },
+            { id: 's5', category: 'soda-cocktails', nameAr: 'فروت باشون', nameEn: 'Fruit Passion', descAr: 'مكس خوخ وأناناس وباشون فروت وبرتقال وسفن أب', descEn: 'Mix Peach, Pineapple, Passion Fruit & 7Up', price: 90, tagAr: 'باشون', icon: 'fa-fire', image: 'images/fruit-passion.jpg' },
+            { id: 's6', category: 'soda-cocktails', nameAr: 'مكس انرجي', nameEn: 'Mix Energy', descAr: 'اختيارك من (جوز هند، توت، شيري، بلو بيري، باشون، ريد بل)', descEn: 'Choice of Energy Flavor', price: 95, tagAr: 'ريد بل', icon: 'fa-bolt', image: 'images/mix-energy.jpg' },
+
+            // MILKSHAKE
+            { id: 'm1', category: 'milkshake', nameAr: 'ميلك شيك شوكولاتة', nameEn: 'Chocolate Milkshake', descAr: 'حليب مثلج غني بالشوكولاتة', descEn: 'Rich Creamy Chocolate Milkshake', price: 40, tagAr: 'شوكولاتة', icon: 'fa-glass-water-droplet', image: 'images/chocolate-milkshake.jpg' },
+            { id: 'm2', category: 'milkshake', nameAr: 'ميلك شيك فراولة', nameEn: 'Strawberry Milkshake', descAr: 'حليب مثلج مخفوق مع الفراولة', descEn: 'Fresh Strawberry Shake', price: 40, tagAr: 'فراولة', icon: 'fa-cookie', image: 'images/strawberry-milkshake.jpg' },
+            { id: 'm3', category: 'milkshake', nameAr: 'ميلك شيك فانيليا', nameEn: 'Vanilla Milkshake', descAr: 'حليب ناعم مخفوق مع الفانيليا', descEn: 'Classic Vanilla Shake', price: 40, tagAr: 'فانيليا', icon: 'fa-ice-cream', image: 'images/vanilla-milkshake.jpg' },
+            { id: 'm4', category: 'milkshake', nameAr: 'ميلك شيك أوريو', nameEn: 'Oreo Milkshake', descAr: 'مكس قطع أوريو مع الآيس كريم', descEn: 'Oreo Cookies Shake', price: 45, tagAr: 'أوريو', icon: 'fa-cookie-bite', image: 'images/oreo-milkshake.jpg' },
+            { id: 'm5', category: 'milkshake', nameAr: 'ميلك شيك كيت كات', nameEn: 'Kit Kat Milkshake', descAr: 'مكس شوكولاتة كيت كات المميزة', descEn: 'Kit Kat Bar Shake', price: 45, tagAr: 'مقرمش', icon: 'fa-cubes', image: 'images/kitkat-milkshake.jpg' },
+            { id: 'm6', category: 'milkshake', nameAr: 'ميلك شيك بوريو', nameEn: 'Borio Milkshake', descAr: 'قطع بوريو مخفوقة مع الكريمة والحليب', descEn: 'Borio Biscuits Shake', price: 45, tagAr: 'بوريو', icon: 'fa-cookie', image: 'images/borio-milkshake.jpg' },
+            { id: 'm7', category: 'milkshake', nameAr: 'ميلك شيك موز', nameEn: 'Banana Milkshake', descAr: 'موز طازج مخفوق مع الحليب', descEn: 'Fresh Banana Shake', price: 45, tagAr: 'موز', icon: 'fa-stroopwafel', image: 'images/banana-milkshake.jpg' },
+            { id: 'm8', category: 'milkshake', nameAr: 'ميلك شيك كنتالوب', nameEn: 'Cantaloupe Milkshake', descAr: 'قطع كنتالوب مخفوقة مع الحليب', descEn: 'Fresh Cantaloupe Shake', price: 45, tagAr: 'كنتالوب', icon: 'fa-lemon', image: 'images/cantaloupe-milkshake.jpg' },
+
+            // ICE CREAM
+            { id: 'i1', category: 'ice-cream', nameAr: 'آيس كريم 2 بولة', nameEn: 'Ice Cream 2 Scoops', descAr: 'اختر من (فانيليا - شوكولاتة - فراولة - مانجو)', descEn: 'Choice of 2 Flavors', price: 25, tagAr: '2 بولة', icon: 'fa-ice-cream', image: 'images/ice-cream-2.jpg' },
+            { id: 'i2', category: 'ice-cream', nameAr: 'آيس كريم 3 بولة', nameEn: 'Ice Cream 3 Scoops', descAr: 'اختر من (فانيليا - شوكولاتة - فراولة - مانجو)', descEn: 'Choice of 3 Flavors', price: 35, tagAr: '3 بولة', icon: 'fa-ice-cream', image: 'images/ice-cream-3.jpg' },
+            { id: 'i3', category: 'ice-cream', nameAr: 'فروت سلات (طبق فاكهة)', nameEn: 'Fruit Salad Basket', descAr: 'قطع فاكهة طازجة مشكلة', descEn: 'Fresh Mixed Fruit Basket', price: 35, tagAr: 'طبق فاكهة', icon: 'fa-apple-whole', image: 'images/fruit-basket.jpg' },
+            { id: 'i4', category: 'ice-cream', nameAr: 'فروت سلات آيس كريم', nameEn: 'Fruit Ice Cream Basket', descAr: 'قطع فاكهة طازجة مع آيس كريم', descEn: 'Fresh Fruits with Ice Cream', price: 45, tagAr: 'فاكهة وآيس كريم', icon: 'fa-bowl-food', image: 'images/fruit-icecream-basket.jpg' },
+
+            // WAFFLE & DESSERTS
+            { id: 'w1', category: 'waffle', nameAr: 'وافل نوتيلا', nameEn: 'Nutella Waffle', descAr: 'وافل ساخن مغطى بشوكولاتة النوتيلا الغنية', descEn: 'Fresh Waffle topped with Nutella', price: 40, tagAr: 'نوتيلا', icon: 'fa-cake-candles', image: 'images/nutella-waffle.jpg' },
+            { id: 'w2', category: 'waffle', nameAr: 'وافل دارك شوكليت', nameEn: 'Dark Chocolate Waffle', descAr: 'وافل مع الشوكولاتة الداكنة الفاخرة', descEn: 'Fresh Waffle with Dark Chocolate', price: 40, tagAr: 'دارك', icon: 'fa-cake-candles', image: 'images/dark-waffle.jpg' },
+            { id: 'w3', category: 'waffle', nameAr: 'وافل وايت شوكليت', nameEn: 'White Chocolate Waffle', descAr: 'وافل ساخن مغطى بالشوكولاتة البيضاء', descEn: 'Waffle with White Chocolate', price: 40, tagAr: 'وايت', icon: 'fa-cake-candles', image: 'images/white-waffle.jpg' },
+            { id: 'w4', category: 'waffle', nameAr: 'وافل كراميل', nameEn: 'Caramel Waffle', descAr: 'وافل مغطى بصوص الكراميل الذهبي', descEn: 'Fresh Waffle with Caramel Sauce', price: 40, tagAr: 'كراميل', icon: 'fa-cake-candles', image: 'images/caramel-waffle.jpg' },
+            { id: 'w5', category: 'waffle', nameAr: 'مولتن كيك', nameEn: 'Molten Cake', descAr: 'كيك الشوكولاتة الذائبة الدافيء', descEn: 'Warm Chocolate Lava Molten Cake', price: 45, tagAr: 'مولتن', icon: 'fa-cake-candles', image: 'images/molten-cake.jpg' },
+            { id: 'w6', category: 'waffle', nameAr: 'مولتن كيك آيس كريم', nameEn: 'Molten Cake Ice Cream', descAr: 'مولتن كيك ساخن مع بولة آيس كريم فانيليا', descEn: 'Warm Molten Cake with Ice Cream Scoop', price: 50, tagAr: 'الأكثر طلباً', icon: 'fa-cake-candles', image: 'images/molten-icecream.jpg' },
+            { id: 'w7', category: 'waffle', nameAr: 'سينبون (لوتس - نوتيلا)', nameEn: 'Cinnabon (Lotus / Nutella)', descAr: 'لفائف القرفة الطازجة مع صوص اللوتس أو النوتيلا', descEn: 'Fresh Cinnamon Roll with Lotus or Nutella', price: 45, tagAr: 'سينبون', icon: 'fa-cake-candles', image: 'images/cinnabon.jpg' },
+            { id: 'w8', category: 'waffle', nameAr: 'تشيز كيك', nameEn: 'Cheese Cake', descAr: 'تشيز كيك كريمي فاخر مع اختيارك من الصوص', descEn: 'Rich Creamy Cheesecake', price: 45, tagAr: 'تشيز كيك', icon: 'fa-cake-candles', image: 'images/cheesecake.jpg' },
+            { id: 'w9', category: 'waffle', nameAr: 'ريد فيلفيت', nameEn: 'Red Velvet', descAr: 'كيك الريد فيلفيت الفاخر', descEn: 'Classic Red Velvet Cake', price: 40, tagAr: 'ريد فيلفيت', icon: 'fa-cake-candles', image: 'images/red-velvet.jpg' },
+            { id: 'w10', category: 'waffle', nameAr: 'طاجن نوتيلا', nameEn: 'Nutella Casserole', descAr: 'طاجن نوتيلا غني ومخبوز طازج', descEn: 'Rich Baked Nutella Casserole', price: 60, tagAr: 'طاجن دافئ', icon: 'fa-cake-candles', image: 'images/nutella-casserole.jpg' },
+
+            // SHISHA
+            { id: 'sh1', category: 'shisha', nameAr: 'شيشة سلوم', nameEn: 'Saloum Shisha', descAr: 'معسل سلوم أصلاني', descEn: 'Classic Saloum Tobacco', price: 15, tagAr: 'كلاسيك', icon: 'fa-smog', image: 'images/saloum-shisha.jpg' },
+            { id: 'sh2', category: 'shisha', nameAr: 'شيشة قص', nameEn: 'Qass Shisha', descAr: 'معسل قص ممتازة', descEn: 'Traditional Qass Tobacco', price: 15, tagAr: 'شيشة', icon: 'fa-smog', image: 'images/qass-shisha.jpg' },
+            { id: 'sh3', category: 'shisha', nameAr: 'شيشة زغلول', nameEn: 'Zaghloul Shisha', descAr: 'معسل زغلول مصري أصيل', descEn: 'Authentic Zaghloul Tobacco', price: 20, tagAr: 'زغلول', icon: 'fa-smog', image: 'images/zaghloul-shisha.jpg' },
+            { id: 'sh4', category: 'shisha', nameAr: 'شيشة فواكة عادي', nameEn: 'Regular Fruit Flavor', descAr: 'معسل فواكة بنكهات متعددة', descEn: 'Assorted Standard Fruit Flavors', price: 35, tagAr: 'فواكة', icon: 'fa-smog', image: 'images/fruit-shisha.jpg' },
+            { id: 'sh5', category: 'shisha', nameAr: 'شيشة فواكة فاخر', nameEn: 'Premium Fruit Flavor', descAr: 'معسل فواكة فاخر نكهات مركزة', descEn: 'Premium Special Fruit Flavors', price: 40, tagAr: 'فاخر', icon: 'fa-smog', image: 'images/premium-shisha.jpg' },
+            { id: 'sh6', category: 'shisha', nameAr: 'شيشة بايركس', nameEn: 'Pyrex Shisha', descAr: 'شيشة زجاج بايركس نقية', descEn: 'Clean Pyrex Glass Shisha', price: 40, tagAr: 'بايركس', icon: 'fa-smog', image: 'images/pyrex-shisha.jpg' },
+            { id: 'sh7', category: 'shisha', nameAr: 'لي طبي', nameEn: 'Hygienic Disposable Hose', descAr: 'خرطوم شيشة طبي معقم معلف لاستخدام مرة واحدة', descEn: 'Single-use Sterile Hygienic Hose', price: 10, tagAr: 'معقم', icon: 'fa-shield-halved', image: 'images/hygienic-hose.jpg' }
         ];
 
-        /* ==========================================
-           APP STATE & FAVORITES MANAGEMENT
-           ========================================== */
         let favorites = JSON.parse(localStorage.getItem('bayroot_cafe_favs') || '[]');
         let activeCategory = 'all';
         let searchQuery = '';
 
-        const gridCocktails = document.getElementById('grid-cocktails');
-        const gridSoda = document.getElementById('grid-soda-cocktails');
-        const sectionCocktails = document.getElementById('section-cocktails');
-        const sectionSoda = document.getElementById('section-soda-cocktails');
+        const grids = {
+            'fresh-juices': document.getElementById('grid-fresh-juices'),
+            'juice-mixes': document.getElementById('grid-juice-mixes'),
+            'cocktails': document.getElementById('grid-cocktails'),
+            'soda-cocktails': document.getElementById('grid-soda-cocktails'),
+            'milkshake': document.getElementById('grid-milkshake'),
+            'ice-cream': document.getElementById('grid-ice-cream'),
+            'waffle': document.getElementById('grid-waffle'),
+            'shisha': document.getElementById('grid-shisha')
+        };
+
+        const sections = {
+            'fresh-juices': document.getElementById('section-fresh-juices'),
+            'juice-mixes': document.getElementById('section-juice-mixes'),
+            'cocktails': document.getElementById('section-cocktails'),
+            'soda-cocktails': document.getElementById('section-soda-cocktails'),
+            'milkshake': document.getElementById('section-milkshake'),
+            'ice-cream': document.getElementById('section-ice-cream'),
+            'waffle': document.getElementById('section-waffle'),
+            'shisha': document.getElementById('section-shisha')
+        };
+
         const noResults = document.getElementById('noResults');
 
         function renderMenu() {
-            gridCocktails.innerHTML = '';
-            gridSoda.innerHTML = '';
-
-            let cocktailsCount = 0;
-            let sodaCount = 0;
+            Object.values(grids).forEach(grid => grid.innerHTML = '');
+            const counts = { 'fresh-juices': 0, 'juice-mixes': 0, 'cocktails': 0, 'soda-cocktails': 0, 'milkshake': 0, 'ice-cream': 0, 'waffle': 0, 'shisha': 0 };
 
             menuItems.forEach(item => {
                 const isFav = favorites.includes(item.id);
-                
-                const matchesCategory = 
-                    (activeCategory === 'all') || 
-                    (activeCategory === item.category) || 
-                    (activeCategory === 'favorites' && isFav);
-
-                const matchesSearch = 
-                    item.nameAr.toLowerCase().includes(searchQuery) ||
-                    item.nameEn.toLowerCase().includes(searchQuery) ||
-                    item.descAr.toLowerCase().includes(searchQuery) ||
-                    item.descEn.toLowerCase().includes(searchQuery);
+                const matchesCategory = (activeCategory === 'all') || (activeCategory === item.category) || (activeCategory === 'favorites' && isFav);
+                const matchesSearch = item.nameAr.toLowerCase().includes(searchQuery) || item.nameEn.toLowerCase().includes(searchQuery) || item.descAr.toLowerCase().includes(searchQuery) || item.descEn.toLowerCase().includes(searchQuery);
 
                 if (matchesCategory && matchesSearch) {
                     const cardHTML = `
                         <div class="menu-card" data-id="${item.id}">
+                            <div class="card-image-wrapper">
+                                <img src="${item.image || fallbackImage}" alt="${item.nameAr}" loading="lazy" onerror="this.onerror=null;this.src='${fallbackImage}';">
+                            </div>
                             <div class="card-top">
-                                <div class="item-icon-badge">
-                                    <i class="fa-solid ${item.icon || 'fa-glass-water'}"></i>
-                                </div>
+                                <div class="item-icon-badge"><i class="fa-solid ${item.icon}"></i></div>
                                 <div class="item-names">
                                     <h3 class="name-ar">${item.nameAr}</h3>
                                     <div class="name-en">${item.nameEn}</div>
@@ -1195,26 +670,29 @@
                             </div>
                         </div>
                     `;
-
-                    if (item.category === 'cocktails') {
-                        gridCocktails.innerHTML += cardHTML;
-                        cocktailsCount++;
-                    } else if (item.category === 'soda-cocktails') {
-                        gridSoda.innerHTML += cardHTML;
-                        sodaCount++;
+                    if (grids[item.category]) {
+                        grids[item.category].innerHTML += cardHTML;
+                        counts[item.category]++;
                     }
                 }
             });
 
-            sectionCocktails.style.display = cocktailsCount > 0 ? 'block' : 'none';
-            sectionSoda.style.display = sodaCount > 0 ? 'block' : 'none';
+            Object.keys(sections).forEach(cat => {
+                sections[cat].style.display = counts[cat] > 0 ? 'block' : 'none';
+            });
 
-            if (cocktailsCount === 0 && sodaCount === 0) {
-                noResults.style.display = 'block';
-            } else {
-                noResults.style.display = 'none';
-            }
+            const totalVisible = Object.values(counts).reduce((a, b) => a + b, 0);
+            noResults.style.display = totalVisible === 0 ? 'block' : 'none';
 
+            document.getElementById('count-all').textContent = menuItems.length;
+            document.getElementById('count-juices').textContent = menuItems.filter(i => i.category === 'fresh-juices').length;
+            document.getElementById('count-mixes').textContent = menuItems.filter(i => i.category === 'juice-mixes').length;
+            document.getElementById('count-cocktails').textContent = menuItems.filter(i => i.category === 'cocktails').length;
+            document.getElementById('count-soda').textContent = menuItems.filter(i => i.category === 'soda-cocktails').length;
+            document.getElementById('count-milkshake').textContent = menuItems.filter(i => i.category === 'milkshake').length;
+            document.getElementById('count-icecream').textContent = menuItems.filter(i => i.category === 'ice-cream').length;
+            document.getElementById('count-waffle').textContent = menuItems.filter(i => i.category === 'waffle').length;
+            document.getElementById('count-shisha').textContent = menuItems.filter(i => i.category === 'shisha').length;
             document.getElementById('count-favs').textContent = favorites.length;
         }
 
@@ -1242,148 +720,60 @@
             renderMenu();
         });
 
-        /* ==========================================
-           HIGH-RESOLUTION PRINTABLE QR CARD CANVAS GENERATOR
-           ========================================== */
+        // PRINTABLE QR CANVAS GENERATOR
         function renderPrintableQRCard() {
             const canvas = document.getElementById('qrCardCanvas');
             const ctx = canvas.getContext('2d');
-            const W = 600;
-            const H = 820;
-            canvas.width = W;
-            canvas.height = H;
+            const W = 600, H = 820;
+            canvas.width = W; canvas.height = H;
 
-            // 1. Fill Deep Dark Background
             ctx.fillStyle = '#121212';
             ctx.fillRect(0, 0, W, H);
 
-            // Radial ambient gold glow
             const radialGlow = ctx.createRadialGradient(W / 2, H / 2, 50, W / 2, H / 2, 380);
             radialGlow.addColorStop(0, 'rgba(223, 177, 91, 0.12)');
             radialGlow.addColorStop(1, 'rgba(0, 0, 0, 0)');
             ctx.fillStyle = radialGlow;
             ctx.fillRect(0, 0, W, H);
 
-            // 2. Ornate Gold Frames
-            // Outer Thick Border
-            ctx.strokeStyle = '#DFB15B';
-            ctx.lineWidth = 10;
+            ctx.strokeStyle = '#DFB15B'; ctx.lineWidth = 10;
             ctx.strokeRect(14, 14, W - 28, H - 28);
-
-            // Inner Thin Border
-            ctx.strokeStyle = 'rgba(223, 177, 91, 0.6)';
-            ctx.lineWidth = 2;
+            ctx.strokeStyle = 'rgba(223, 177, 91, 0.6)'; ctx.lineWidth = 2;
             ctx.strokeRect(26, 26, W - 52, H - 52);
 
-            // Corner Ornate Diamonds
-            const corners = [[26, 26], [W - 26, 26], [26, H - 26], [W - 26, H - 26]];
-            corners.forEach(([cx, cy]) => {
-                ctx.fillStyle = '#DFB15B';
-                ctx.beginPath();
-                ctx.arc(cx, cy, 6, 0, Math.PI * 2);
-                ctx.fill();
-            });
-
-            // 3. Header Section (Bayroot Emblem Logo + Text)
             const centerX = W / 2;
             
-            // Draw Cedar Emblem Logo on Canvas
-            const logoY = 110;
-            
-            // Outer circles
-            ctx.strokeStyle = '#DFB15B';
-            ctx.lineWidth = 2;
-            ctx.beginPath();
-            ctx.arc(centerX, logoY, 44, 0, Math.PI * 2);
-            ctx.stroke();
-
-            // Laurel Leaves Flanking
-            ctx.fillStyle = '#DFB15B';
-            // Left Laurel
-            ctx.beginPath();
-            ctx.ellipse(centerX - 35, logoY + 4, 12, 6, Math.PI / 4, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.beginPath();
-            ctx.ellipse(centerX - 42, logoY - 12, 12, 6, Math.PI / 3, 0, Math.PI * 2);
-            ctx.fill();
-            
-            // Right Laurel
-            ctx.beginPath();
-            ctx.ellipse(centerX + 35, logoY + 4, 12, 6, -Math.PI / 4, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.beginPath();
-            ctx.ellipse(centerX + 42, logoY - 12, 12, 6, -Math.PI / 3, 0, Math.PI * 2);
-            ctx.fill();
-
-            // Cedar Tree Triangles (Center Logo)
-            ctx.beginPath();
-            ctx.moveTo(centerX, logoY - 26);
-            ctx.lineTo(centerX - 12, logoY - 10);
-            ctx.lineTo(centerX + 12, logoY - 10);
-            ctx.closePath();
-            ctx.fill();
-
-            ctx.beginPath();
-            ctx.moveTo(centerX, logoY - 14);
-            ctx.lineTo(centerX - 18, logoY + 4);
-            ctx.lineTo(centerX + 18, logoY + 4);
-            ctx.closePath();
-            ctx.fill();
-
-            ctx.beginPath();
-            ctx.moveTo(centerX, logoY - 2);
-            ctx.lineTo(centerX - 24, logoY + 18);
-            ctx.lineTo(centerX + 24, logoY + 18);
-            ctx.closePath();
-            ctx.fill();
-
-            // Trunk & Cup
-            ctx.fillRect(centerX - 3, logoY + 18, 6, 12);
-            ctx.beginPath();
-            ctx.arc(centerX, logoY + 28, 16, 0, Math.PI, false);
-            ctx.fill();
-
-            // BRAND TITLE TEXT
-            ctx.textAlign = 'center';
-            ctx.fillStyle = '#DFB15B';
+            ctx.textAlign = 'center'; ctx.fillStyle = '#DFB15B';
             ctx.font = '900 38px Outfit, sans-serif';
-            ctx.fillText('BAYROOT CAFE', centerX, 205);
+            ctx.fillText('BAYROOT CAFE', centerX, 160);
 
             ctx.fillStyle = '#B0B0B0';
             ctx.font = '600 20px Cairo, sans-serif';
-            ctx.fillText('بايروت كافيه | القائمة الإلكترونية الفاخرة', centerX, 238);
+            ctx.fillText('بايروت كافيه | القائمة الإلكترونية الفاخرة', centerX, 200);
 
-            // 4. Center QR Code Container Box
             const qrBoxSize = 340;
             const qrBoxX = (W - qrBoxSize) / 2;
-            const qrBoxY = 265;
+            const qrBoxY = 240;
 
             ctx.fillStyle = '#181818';
             ctx.fillRect(qrBoxX, qrBoxY, qrBoxSize, qrBoxSize);
-            ctx.strokeStyle = '#DFB15B';
-            ctx.lineWidth = 3;
+            ctx.strokeStyle = '#DFB15B'; ctx.lineWidth = 3;
             ctx.strokeRect(qrBoxX, qrBoxY, qrBoxSize, qrBoxSize);
 
-            // 5. Draw Genuine Scannable QR Code
             const qrPadding = 20;
             const qrDrawSize = qrBoxSize - (qrPadding * 2);
             const qrDrawX = qrBoxX + qrPadding;
             const qrDrawY = qrBoxY + qrPadding;
 
-            // Generate real QR code using QRCode library if available
             const tempDiv = document.getElementById('tempQrContainer');
             tempDiv.innerHTML = '';
             
-            let qrGeneratedSuccess = false;
-
             if (typeof QRCode !== 'undefined') {
                 try {
                     new QRCode(tempDiv, {
-                        text: MENU_TARGET_URL,
-                        width: 256,
-                        height: 256,
-                        colorDark: "#DFB15B",
-                        colorLight: "#181818",
+                        text: GITHUB_PAGES_URL,
+                        width: 256, height: 256,
+                        colorDark: "#DFB15B", colorLight: "#181818",
                         correctLevel: QRCode.CorrectLevel.H
                     });
 
@@ -1391,145 +781,25 @@
                         const qrImg = tempDiv.querySelector('img') || tempDiv.querySelector('canvas');
                         if (qrImg) {
                             ctx.drawImage(qrImg, qrDrawX, qrDrawY, qrDrawSize, qrDrawSize);
-                            drawCenterLogoBadgeOnQR(ctx, centerX, qrBoxY + qrBoxSize / 2);
                         }
                     }, 50);
-                    qrGeneratedSuccess = true;
-                } catch(e) {
-                    qrGeneratedSuccess = false;
-                }
+                } catch(e) {}
             }
 
-            // Fallback QR Matrix Drawing if library is loading or offline
-            if (!qrGeneratedSuccess) {
-                drawFallbackQRMatrix(ctx, qrDrawX, qrDrawY, qrDrawSize);
-                drawCenterLogoBadgeOnQR(ctx, centerX, qrBoxY + qrBoxSize / 2);
-            }
-
-            // 6. Bottom Instruction Text & Link Section
-            const bottomY = 645;
-            
-            // Camera / Scan Icon
+            const bottomY = 630;
             ctx.fillStyle = '#DFB15B';
-            ctx.font = '22px "Font Awesome 6 Free"';
-            ctx.fillText('📷  امسح الباركود لعرض المنيو', centerX, bottomY);
+            ctx.font = '800 24px Cairo, sans-serif';
+            ctx.fillText('امسح الباركود لعرض المنيو', centerX, bottomY);
 
             ctx.fillStyle = '#FFFFFF';
-            ctx.font = '800 24px Cairo, sans-serif';
-            ctx.fillText('امسح الباركود لعرض المنيو', centerX, bottomY + 35);
-
-            ctx.fillStyle = '#DFB15B';
             ctx.font = '600 18px Outfit, sans-serif';
-            ctx.fillText('Scan QR Code to View Menu', centerX, bottomY + 68);
+            ctx.fillText('Scan QR Code to View Menu', centerX, bottomY + 35);
 
-            // Direct URL link
             ctx.fillStyle = '#888888';
             ctx.font = '400 14px Outfit, sans-serif';
-            ctx.fillText(MENU_TARGET_URL, centerX, bottomY + 98);
-
-            // Ornate Bottom Line
-            ctx.strokeStyle = '#DFB15B';
-            ctx.lineWidth = 1.5;
-            ctx.beginPath();
-            ctx.moveTo(centerX - 100, bottomY + 115);
-            ctx.lineTo(centerX + 100, bottomY + 115);
-            ctx.stroke();
+            ctx.fillText(GITHUB_PAGES_URL, centerX, bottomY + 70);
         }
 
-        // Helper to draw embedded logo badge inside QR code center
-        function drawCenterLogoBadgeOnQR(ctx, cx, cy) {
-            const badgeRadius = 32;
-            
-            // Badge background
-            ctx.fillStyle = '#181818';
-            ctx.beginPath();
-            ctx.arc(cx, cy, badgeRadius, 0, Math.PI * 2);
-            ctx.fill();
-            
-            ctx.strokeStyle = '#DFB15B';
-            ctx.lineWidth = 2.5;
-            ctx.stroke();
-
-            // Cedar Emblem inside badge
-            ctx.fillStyle = '#DFB15B';
-            
-            // Tier 1
-            ctx.beginPath();
-            ctx.moveTo(cx, cy - 18);
-            ctx.lineTo(cx - 7, cy - 9);
-            ctx.lineTo(cx + 7, cy - 9);
-            ctx.closePath();
-            ctx.fill();
-
-            // Tier 2
-            ctx.beginPath();
-            ctx.moveTo(cx, cy - 11);
-            ctx.lineTo(cx - 12, cy - 1);
-            ctx.lineTo(cx + 12, cy - 1);
-            ctx.closePath();
-            ctx.fill();
-
-            // Tier 3
-            ctx.beginPath();
-            ctx.moveTo(cx, cy - 3);
-            ctx.lineTo(cx - 16, cy + 8);
-            ctx.lineTo(cx + 16, cy + 8);
-            ctx.closePath();
-            ctx.fill();
-
-            // Trunk & Cup base
-            ctx.fillRect(cx - 2.5, cy + 8, 5, 8);
-            ctx.beginPath();
-            ctx.arc(cx, cy + 14, 8, 0, Math.PI, false);
-            ctx.fill();
-        }
-
-        // Fallback QR Matrix Generator
-        function drawFallbackQRMatrix(ctx, x, y, size) {
-            ctx.fillStyle = '#DFB15B';
-            const seedMatrix = [
-                [1,1,1,1,1,1,1,0,1,0,1,1,0,1,0,1,1,1,1,1,1,1],
-                [1,0,0,0,0,0,1,0,0,1,1,0,1,0,0,1,0,0,0,0,0,1],
-                [1,0,1,1,1,0,1,0,1,0,0,1,0,1,0,1,0,1,1,1,0,1],
-                [1,0,1,1,1,0,1,0,0,1,1,0,1,0,0,1,0,1,1,1,0,1],
-                [1,0,1,1,1,0,1,0,1,1,0,1,0,1,1,1,0,1,1,1,0,1],
-                [1,0,0,0,0,0,1,0,0,0,1,0,1,0,0,1,0,0,0,0,0,1],
-                [1,1,1,1,1,1,1,0,1,0,1,0,1,0,1,1,1,1,1,1,1,1],
-                [0,0,0,0,0,0,0,0,1,1,0,1,0,1,0,0,0,0,0,0,0,0],
-                [1,0,1,0,1,1,1,1,0,0,0,0,0,0,1,1,1,0,1,0,1,1],
-                [0,1,0,1,0,0,0,1,1,0,0,0,0,1,1,0,0,1,0,1,0,1],
-                [1,1,0,0,1,1,0,0,0,0,0,0,0,0,0,1,1,0,0,1,1,0],
-                [0,1,1,0,1,0,1,0,0,0,0,0,0,0,0,0,1,0,1,1,0,1],
-                [1,0,0,1,0,1,1,1,0,0,0,0,0,0,1,1,1,1,0,0,1,0],
-                [0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,1,0,0,0,0,0,0],
-                [1,1,1,1,1,1,1,0,1,1,0,1,0,1,1,0,1,1,0,1,1,1],
-                [1,0,0,0,0,0,1,0,0,1,1,0,1,0,0,1,1,0,1,0,0,1],
-                [1,0,1,1,1,0,1,0,1,0,1,1,0,1,0,1,0,1,1,1,0,1],
-                [1,0,1,1,1,0,1,0,0,1,0,0,1,0,1,0,0,1,1,1,0,1],
-                [1,0,1,1,1,0,1,0,1,1,1,0,0,1,0,1,0,1,1,1,0,1],
-                [1,0,0,0,0,0,1,0,0,0,1,1,1,0,1,1,0,0,0,0,0,1],
-                [1,1,1,1,1,1,1,0,1,0,1,0,0,1,0,1,1,1,1,1,1,1]
-            ];
-
-            const rows = seedMatrix.length;
-            const cols = seedMatrix[0].length;
-            const scaleX = size / cols;
-            const scaleY = size / rows;
-
-            for (let r = 0; r < rows; r++) {
-                for (let c = 0; c < cols; c++) {
-                    if (seedMatrix[r][c] === 1) {
-                        const px = x + c * scaleX;
-                        const py = y + r * scaleY;
-                        ctx.beginPath();
-                        ctx.roundRect(px + 0.5, py + 0.5, scaleX - 1, scaleY - 1, 1.5);
-                        ctx.fill();
-                    }
-                }
-            }
-        }
-
-        // QR Modal Functionality
         const qrModal = document.getElementById('qrModal');
         document.getElementById('openQrBtn').addEventListener('click', () => {
             renderPrintableQRCard();
@@ -1546,7 +816,6 @@
             }
         });
 
-        // Download Printable QR Card as PNG Image
         document.getElementById('downloadQrCardBtn').addEventListener('click', () => {
             renderPrintableQRCard();
             setTimeout(() => {
@@ -1558,7 +827,6 @@
             }, 100);
         });
 
-        // Back to Top Button
         const backToTopBtn = document.getElementById('backToTopBtn');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 300) {
@@ -1572,7 +840,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Initial Load
         renderMenu();
     </script>
 </body>
