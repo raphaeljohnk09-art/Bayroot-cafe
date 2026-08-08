@@ -643,7 +643,7 @@
                     const cardHTML = `
                         <div class="menu-card" data-id="${item.id}">
                             <div class="card-image-wrapper">
-                                <img src="${item.image || fallbackImage}" alt="${item.nameAr}" loading="lazy" onerror="this.onerror=null;this.src='${fallbackImage}';">
+                               <img src="images/${item.image}" onerror="this.onerror=null; this.src='${item.image}';" alt="${item.nameAr}">
                             </div>
                             <div class="card-top">
                                 <div class="item-icon-badge"><i class="fa-solid ${item.icon}"></i></div>
